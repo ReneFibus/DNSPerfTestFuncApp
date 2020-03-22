@@ -1,0 +1,25 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "myQueueItem",
+      "queueName": "js-queue-items",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
+      "dataType": "string"
+    }
+  ],
+  "scriptFile": "../dist/HttpTrigger1/index.js"
+}

@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "js-queue-items",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "type": "table",
+      "direction": "out",
+      "name": "$return",
+      "tableName": "perfMeasure",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ],
+  "scriptFile": "../dist/QueueTrigger1/index.js"
+}
