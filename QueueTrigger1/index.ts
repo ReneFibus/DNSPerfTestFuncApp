@@ -24,9 +24,10 @@ const queueTrigger: AzureFunction = async function (context: Context, myQueueIte
         perfMeasure.Servers = [dnsServer];
         promResolver.setServers([dnsServer]);
     }
-    const servers = promResolver.getServers();
+    const servers: string[] = promResolver.getServers();
     context.log('Servers: ', servers);
     perfMeasure.Servers = servers;
+    perfMeasure.PartitionKey += '.' + (servers.join('-'));
 
     if (perfMeasure.DnsLookupInuput === undefined) {
         // just end it without writing to output table.
